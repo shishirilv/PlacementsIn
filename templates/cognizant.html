@@ -1,0 +1,134 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+  <center>
+
+    <br>
+    <br>
+    <div style="width:200px;height:50px;margin-left:40px;float:left;" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="GPAMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by GPA
+  </button>
+   {% for o in obj %}
+       {% if forloop.first %}
+          <div class="dropdown-menu" aria-labelledby="GPAMenuButton">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/filterone/cognizant">6-7</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/filtertwo/cognizant">7-8</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/filterthree/cognizant">8-9</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/filterfour/cognizant">9-10</a>
+          </div>
+       {% endif %}
+   {% endfor %}
+</div>
+   <div style="width:200px;height:50px;margin-left:40px;float:left;" class="dropdown" >
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="LPAMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by LPA
+  </button>
+  <div class="dropdown-menu" aria-labelledby="LPAMenuButton">
+    <a class="dropdown-item" href="http://127.0.0.1:8000/lpafilterone/cognizant">3-5</a>
+    <a class="dropdown-item" href="http://127.0.0.1:8000/lpafiltertwo/cognizant">5-7</a>
+    <a class="dropdown-item" href="http://127.0.0.1:8000/lpafilterthree/cognizant">7-10</a>
+    <a class="dropdown-item" href="http://127.0.0.1:8000/lpafilterfour/cognizant">10-15</a>
+    <a class="dropdown-item" href="http://127.0.0.1:8000/lpafilterfive/cognizant">15+</a>
+  </div>
+</div>
+ <div style="width:300px;height:50px;margin-left:40px;float:left;">
+    <form action="" method="get" class="form-inline">
+        <input type="text" class="form-control" name="searchinterns" placeholder="search by internships"/>
+        <input type="submit" value="search" class="btn btn-success">
+    </form>
+</div>
+      <div style="width:300px;height:50px;margin-left:40px;float:left;">
+    <form action="" method="get" class="form-inline">
+        <input type="text" class="form-control" name="searchspecialcourses" placeholder="search by special courses"/>
+        <input type="submit" value="search" class="btn btn-success">
+    </form>
+</div>
+</center>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<br>
+<br>
+<br>
+ {% for x in obj %}
+ <center>
+ <table border='3' style="width:50%;">
+ <tr style="height:150px;">
+ <td><h1>{{x.name}}</h1></td>
+ <td>   </td>
+ </tr>
+ <tr>
+ <td><h3>BRANCH</h3></td>
+ <td><b>{{x.branch}}</b></td>
+ </tr>
+ <tr>
+ <td><h3>PACKAGE</h3></td>
+ <td><b>{{x.package_LPA}}LPA</b><td>
+ </tr>
+ <tr>
+ <th>ACADEMIC INFO</th>
+ </tr>
+ <tr>
+ <td>CGPA</td>
+ <td>{{x.cgpa}}</td>
+ </tr>
+ <tr>
+ <td>MAJOR</td>
+ <td>{{x.major}}</td>
+ </tr>
+ <tr>
+ <td>MINOR</td>
+ <td>{{x.minor}}</td>
+ </tr>
+ <tr>
+ <td>MINI</td>
+ <td>{{x.mini}}</td>
+ </tr>
+ <tr style="height:50px;">
+ <td>INTERNSHIPS</td>
+ <td>{{x.internships}}</td>
+ </tr>
+ <tr style="height:50px">
+ <td>SPECIAL COURSES</td>
+ <td>{{x.special_courses}}</td>
+ </tr>
+ <tr>
+ <th>PERSONAL INFO</th>
+ </tr>
+ <tr>
+ <td>EMAIL</td>
+ <td>{{x.email}}</td>
+ </tr>
+ <tr>
+ <td>LINKEDIN</td>
+ <td>{{x.LinkedIn}}</td>
+ </tr>
+
+
+
+ </table>
+ </center>
+ <br>
+ <br>
+
+ {% endfor %}
+  </body>
+</html>
+{% endblock %}
